@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect(
-  "mongodb+srv://abhi5702:mongodb5702@cluster0.qvkxsat.mongodb.net/todo_fullstack"
-);
+mongoose.connect(process.env.DATABASE_CONNECTION_STRING);
 
 // Todo Schema
 const todoSchema = new mongoose.Schema({
@@ -10,7 +8,7 @@ const todoSchema = new mongoose.Schema({
   title: String,
   description: String,
   completed: Boolean,
-})
+});
 
 const Todo = mongoose.model("Todo", todoSchema);
 
